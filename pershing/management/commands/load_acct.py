@@ -95,9 +95,9 @@ def get_table_meta(table: str) -> TableMeta:
 
 def build_row(line: str, rec_type: str, meta: TableMeta) -> Dict[str, object]:
     if rec_type == "Header":
-        layout = EXTRA_LAYOUT.get("Header", {})
+        layout = EXTRA_LAYOUT.get("HEADER", {})
     elif rec_type == "Trailer":
-        layout = EXTRA_LAYOUT.get("Trailer", {})
+        layout = EXTRA_LAYOUT.get("TRAILER", {})
     else:
         layout = {**LEAD_LAYOUT, **EXTRA_LAYOUT.get(rec_type, {})}
     row = {}
@@ -107,10 +107,29 @@ def build_row(line: str, rec_type: str, meta: TableMeta) -> Dict[str, object]:
     # stamp audit if present
     if AUDIT_COLUMN in meta.columns:
         row[AUDIT_COLUMN] = datetime.datetime.utcnow()
+    if rec_type in["Header","Trailer"]:
+        row['IBDNumber'] = "AAA"
+    
+    if "DateOfData" in row and row["DateOfData"]:
+        try:
+            row["DateOfData"] = datetime.datetime.strptime(row["DateOfData"], "%m/%d/%Y").date()
+        except ValueError:
+            raise ValueError(f"{meta.name}: invalid DateOfData '{row['DateOfData']}'")
+        
     # basic integrity: all PKs present and non-empty
     missing = [c for c in meta.pk_cols if (c not in row) or (str(row[c]).strip() == "")]
     if missing:
         raise ValueError(f"{meta.name}: missing PK fields {missing}. Add their positions in EXTRA_LAYOUT.")
+    for r in row:
+        if row[r] == "":
+            row[r] = None
+        if r in['BirthDate', 'DateTaxIDAppliedFor','FromDate2','FromDate3','MostRecentMailReturnDate','SecondMostRecentMailReturnDate','ThirdMostRecentMailReturnDate','AgreementExecDate'] and row[r] == "00000000":
+            row[r] = None
+        if row[r] == "00000000":
+            row[r] = None
+        if r in ['ToDate1','ToDate2','ToDate3']:
+            row[r] = None
+            
     return row
 
 def chunks(it, n=1000):
@@ -199,7 +218,6 @@ class Command(BaseCommand):
                     raise CommandError(f"Line {ln}: too short")
                 
                 rec = line[2]  # column 3 in spec
-                print(rec,"recrecrecrecrecrecrec")
                 if rec not in RECORD_TABLE_MAP:
                     raise CommandError(f"Line {ln}: unknown record indicator '{rec}'")
                 
@@ -207,17 +225,20 @@ class Command(BaseCommand):
                 m = meta_for(tname)
                 row = build_row(line, rec, m)
                 detail_rows[tname].append(row)
+        print(detail_rows,"detail_rowsdetail_rowsdetail_rowsdetail_rows")
 
         # batch UPSERTs
         try:
             if header_rows:
                 upsert_mysql(HEADER_TABLE, header_rows, meta_for(HEADER_TABLE))
             for tname, rows in detail_rows.items():
+                print(tname,rows,"++++++++++++++++++++++++++++")
                 for block in chunks(rows, 1000):
                     upsert_mysql(tname, block, meta_for(tname))
             if trailer_rows:
                 upsert_mysql(TRAILER_TABLE, trailer_rows, meta_for(TRAILER_TABLE))
         except Exception as e:
+            print(e,"eeeeeeeeeeeeeeeeee")
             raise CommandError(str(e))
 
         self.stdout.write(self.style.SUCCESS("Load complete."))
