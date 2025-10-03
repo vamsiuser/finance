@@ -1,0 +1,91 @@
+ACC_G = {
+        "TransactionCode":               (1, 2),
+        "RecordIndicatorValue":          (3, 3),     # 'G'
+        "RecordIDSequenceNumber":        (4, 11),
+        "AccountNumber":                 (12, 20),
+        "IBDNumber":                     (21, 23),
+        "Literal01":                     (24, 24),
+        "InvestmentProfessionalNumber":  (25, 28),
+        "AccountShortName":              (29, 38),
+        "Literal03":                     (39, 40),
+        "AccountHolderParticipantTransactionCode": (41, 41),
+        
+        # ACCOUNT HOLDER/PARTICIPANT SECONDARY IDENTIFIERS
+        "SequenceNumber":                (42, 44),
+        "AccountHolderType":             (45, 47),
+        "AccountHolderParticipantRole1": (48, 51),
+        
+        #ACCOUNT HOLDER/PARTICIPANT NAME AREA
+        "AccountHolderParticipantNameType1": (52, 52),
+        "AccountHolderParticipantSuffix1": (53, 84),
+        "AccountHolderParticipantFirstName1": (85, 116),
+        "AccountHolderParticipantMiddleName1": (117, 148),
+        "AccountHolderParticipantLastName1": (149, 180),
+
+        # ACCOUNT HOLDER/PARTICIPANT ADDRESS AREA (FIRST)
+        "DeliveryIdentifier1":           (181, 181),
+        "SpecialHandlingIndicator1":     (182, 182),
+        "AttentionLinePrefix1":          (183, 186),
+        "AttentionLineDetail1":          (187, 214),
+        "StreetAddress1Line1":           (215, 246),
+        "StreetAddress1Line2":           (247, 278),
+        "StreetAddress1Line3":           (279, 310),
+        "StreetAddress1Line4":           (311, 342),
+        "City1":                         (343, 357),
+        "State1":                        (358, 359),
+        "Zip1":                          (360, 374),
+        "NonUSOrCanadaCity1":            (343, 374),
+        "CountryCode1":                  (375, 376),
+        "Literal4":                      (377, 378),
+
+        # ACCOUNT HOLDER/PARTICIPANT ADDRESS AREA (SECOND)
+        "DeliveryIdentifier2":           (379, 379),
+        "SpecialHandlingIndicator2":     (380, 380),
+        "AttentionLinePrefix2":          (381, 384),
+        "AttentionLineDetail2":          (385, 412),
+        "StreetAddress2Line1":           (413, 444),
+        "StreetAddress2Line2":           (445, 476),
+        "StreetAddress2Line3":           (477, 508),
+        "StreetAddress2Line4":           (509, 540),
+        "City2":                         (541, 555),
+        "State2":                        (556, 557),
+        "Zip2":                          (558, 572),
+        "NonUSOrCanadaCity2":            (541, 572),
+        "CountryCode2":                  (573, 574),
+        "Literal5":                      (575, 576),
+
+        # ACCOUNT HOLDER/PARTICIPANT INFORMATION; includes USA PATRIOT ACT account information
+        "NaturalNonNaturalIndicator":    (577, 577),
+        "ConfirmationReceiptIndicator":  (578, 578),
+        "StatementReceiptIndicator":     (579, 579),
+        "YearsOfInvestExperience":       (580, 581),
+        "Gender":                        (582, 582),
+        "ProxyIndicator":                (583, 583),
+        "AccountHolderParticipantBirthDate": (584, 591),  # CCYYMMDD
+        "AccountHolderParticipantPrimaryCitizenship": (592, 593),
+        "AccountHolderParticipantCountryOfResidence": (594, 595),
+        "IndentityVerificationMethod":   (596, 599),
+        "TaxIDType":                     (600, 600),
+        "TaxIDNumber":                   (601, 609),
+        "TaxExemptionIndicator":         (610, 610),
+        "W9OnFile":                      (611, 611),
+        "CustomerBankCode":              (612, 615),
+        "CorporateBusinessID":           (616, 647),
+        "CountryOfTheFormationOrganization": (648, 649),
+        "StateOfIncorporation":          (650, 651),
+        
+        #EMPLOYMENT INFORMATION
+        "EmployeeOfThisIBD":             (652, 652),
+        "RelatedToEmployeeOfThisIBD":    (653, 653),
+        "EmployeeOfAnotherIBD":          (654, 654),
+        "RelatedToEmployeeOfAnotherIBD": (655, 655),
+        "EmployeeStatusCode":            (656, 659),
+        "Occupation":                    (660, 674),
+        "TaxBracket":                    (675, 678),
+        "YearsEmployeed":                (679, 680),
+        "TypeOfBusiness":                (681, 715),
+        "EmployerName":                  (716, 747),
+        "AccountHolderParticipantDiscretion": (748, 748),
+        "MaritalStatus":                 (749, 749),
+        "Literal7":                      (750, 750) #X
+    }

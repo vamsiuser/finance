@@ -1,0 +1,15 @@
+ACC_HEADER = {
+        "Literal01": (1, 18),
+        "FileDescription": (19, 36),
+        "Literal02": (38, 46),
+        "DateOfData": (47, 56),
+        "Literal03": (58, 67),
+        "RemoteID": (68, 71),
+        "Literal04": (73, 85),
+        "RunDate": (86, 95),
+        "RunTime": (97, 104),   
+        "FileModificationType": (118, 127),
+        "Literal08": (750, 750),
+        "RefreshOrUpdate": (118, 127),
+        "EndMarker": (749, 750),
+    }

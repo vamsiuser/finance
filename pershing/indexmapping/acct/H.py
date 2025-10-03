@@ -1,0 +1,93 @@
+ACCT_H = {
+        "TransactionCode":               (1, 2),
+        "RecordIndicatorValue":          (3, 3),
+        "RecordIDSequenceNumber":        (4, 11),
+        "AccountNumber":                 (12, 20),
+        "IBDNumber":                     (21, 23),
+        "Literal01":                     (24, 24),
+        "InvestmentProfessionalNumber":  (25, 28),
+        "AccountShortName":              (29, 38),
+        "Literal03":                     (39, 40),
+        "AccountHolderParticipantTransactionCode": (41, 41),
+        
+        #ACCOUNT HOLDER/PARTICIPANT SECONDARY IDENTIFIERS
+        "SequenceNumber":                (42, 44),
+        "AccountHolderType":             (45, 47),
+
+        # BOOKS AND RECORDS DETAILS
+        "JointAccountIncomeNetWorthIndicator": (48, 48),
+        "MinimumAnnualIncomeAmount":     (49, 66),
+        "MaximumAnnualIncomeAmount":     (67, 84),
+        "MinimumNetWorthAmount":         (85, 102),
+        "MaximumNetWorthAmount":         (103, 120),
+
+        # phone blocks (1..7) — show first two; repeat pattern for the rest
+        "PhoneTransactionCode1":         (121, 121),
+        "USInternationalIndicator1":     (122, 122),
+        "PhoneTypeID1":                  (123, 123),
+        "PhoneNumber1":                  (124, 171),
+        "PhoneExtension1":               (172, 178),
+
+        "PhoneTransactionCode2":         (179, 179),
+        "USInternationalIndicator2":     (180, 180),
+        "PhoneTypeID2":                  (181, 181),
+        "PhoneNumber2":                  (182, 229),
+        "PhoneExtension2":               (230, 236),
+        
+        "PhoneTransactionCode3":         (237, 237),
+        "USInternationalIndicator3":     (238, 238),
+        "PhoneTypeID3":                  (239, 239),
+        "PhoneNumber3":                  (240, 287),
+        "PhoneExtension3":               (288, 294),
+        
+        "PhoneTransactionCode4":         (295, 295),
+        "USInternationalIndicator4":     (296, 296),
+        "PhoneTypeID4":                  (297, 297),
+        "PhoneNumber4":                  (298, 345),
+        "PhoneExtension4":               (346, 352),
+        
+        "PhoneTransactionCode5":         (353, 353),
+        "USInternationalIndicator5":     (354, 354),
+        "PhoneTypeID5":                  (355, 355),
+        "PhoneNumber5":                  (356, 403),
+        "PhoneExtension5":               (404, 410),
+        
+        "PhoneTransactionCode6":         (411, 411),
+        "USInternationalIndicator6":     (412, 412),
+        "PhoneTypeID6":                  (413, 413),
+        "PhoneNumber6":                  (414, 461),
+        "PhoneExtension6":               (462, 468),
+        
+        "PhoneTransactionCode7":         (469, 469),
+        "USInternationalIndicator7":     (470, 470),
+        "PhoneTypeID7":                  (471, 471),
+        "PhoneNumber7":                  (472, 519),
+        "PhoneExtension7":               (520, 526),
+
+        "ConsolidatedLiquidNetWorthIndicator": (527, 527),
+        "MinimumLiquidNetWorthAmount":  (528, 545),
+        "MaximumLiquidNetWorthAmount":  (546, 563),
+        "Literal04":                     (564, 568),
+        "AccountHolderParticipantRoleCode": (569, 572),
+        "ParticipantShortName":          (573, 582),
+        "ParticipantMailRecipientIndicator": (583, 583),
+        "Literal05":                     (584, 584),
+        # "EmailAddress":                  (5584, 634),
+
+        # ADDITIONAL PATRIOT ACT INFORMATION
+        "TypeOfUnexpiredPhotoGovernmentID1": (636, 638), 
+        "UnexpiredPhotoGovernmentIDNumber1": (639, 670),
+        "CountryOfUnexpiredPhotoGovernmentID1": (671, 672), 
+        "StateOfUnexpiredPhotoGovernmentID1": (673, 674),
+        "ExpirationDateOfUnexpiredPhotoGovernmentID1": (675, 682), 
+        "IssueDateOfUnexpiredPhotoGovernmentID1": (683, 690),
+        "TypeOfUnexpiredPhotoGovernmentID2": (691, 694), 
+        "UnexpiredPhotoGovernmentIDNumber2": (695, 726),
+        "CountryOfUnexpiredPhotoGovernmentID2":(727, 728),
+        "StateOfUnexpiredPhotoGovernmentID2":(729, 730),
+        "ExpirationDateOfUnexpiredPhotoGovernmentID2":(731, 738),
+        "IssueDateOfUnexpiredPhotoGovernmentID2":(739, 746),
+        "SpecifiedAdultIndicator":       (747, 747),
+        "Literal06":                     (748, 749),
+        "Literal07":                     (750, 750) #X,
+    }
